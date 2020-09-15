@@ -2,12 +2,15 @@
 * {
   box-sizing: border-box;
 }
-h1 {
+
+h1.original-title {
   text-align: center;
   font-family: "Comic Sans MS", cursive, sans-serif;
   margin-bottom: 3%;
   font-size: 1.75em;
 }
+
+h1.mobile-title { display: none; }
 
 .container {
   border: 1px solid black;
@@ -16,6 +19,12 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
   padding: 10px;
+  height: 150px;
+  overflow: hidden;
+}
+.container:hover{
+  cursor: ns-resize;
+  overflow: scroll;
 }
 
 section{
@@ -28,25 +37,37 @@ section{
   text-align: center;
 }
 
-#chicken{
+#non-mobile-chicken{
   background-color: pink;
   color: black;
   padding: 5px;
   font-weight: bold;
 }
 
-#beef{
+#mobile-chicken{
+  display: none;
+}
+
+#non-mobile-beef{
   background-color: rgb(194, 57, 57);
   color: white;
   padding: 5px;
   font-weight: bold;
 }
 
-#sushi{
+#mobile-beef{
+  display: none;
+}
+
+#non-mobile-sushi{
   background-color: rgb(230, 230, 40);
   color: black;
   padding: 5px;
   font-weight: bold;
+}
+
+#mobile-sushi{
+  display: none;
 }
 
 p{
@@ -148,6 +169,60 @@ p{
 
   /**** Mobile view ****/
 @media (max-width: 767px){
+  h1.mobile-title { 
+    display: inline-block;
+    font-size: 1.25em;
+    font-family: "Baskerville Old Face", cursive, serif;
+    margin-bottom: 3%;
+    padding-left: 10px;
+   }
+  h1.original-title { display: none; }
+  section{
+    border: 1px solid black;
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    text-align: center;
+  }
+  #mobile-chicken{
+    display: inline-block;
+    background-color: pink;
+    color: black;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    height: auto;
+    position: relative;
+  }
+  #non-mobile-chicken{
+    display: none;
+  }
+  #mobile-beef{
+    display: inline-block;
+    background-color: rgb(194, 57, 57);
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    height: auto;
+    position: relative;
+  }
+  #non-mobile-beef{
+    display: none;
+  }
+  #mobile-sushi{
+    display: inline-block;
+    background-color: rgb(230, 230, 40);
+    color: black;
+    padding: 5px;
+    font-weight: bold;
+    text-align: center;
+    height: auto;
+    position: relative;
+  }
+  #non-mobile-sushi{
+    display: none;
+  }
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left;
     padding: 10px;
