@@ -12,13 +12,17 @@ body{
   border: 0;
 }
 
+.navbar{
+  margin-bottom: 0px;
+}
+
 .navbar-brand {
   padding-top: 10px;
 }
 
 .navbar-brand h1{
   font-family: 'Oxygen', san-serif;
-  font-size: 1.25em;
+  font-size: 1.5em;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 0;
@@ -46,4 +50,13 @@ section{
 p{
   padding: 10px;
   top: 10px;
+}
+
+p.text-center{
+  font-size: 1.25em;
+}
+
+.container-fluid{
+  margin-left: 10px;
+  margin-right: 10px;
 }
