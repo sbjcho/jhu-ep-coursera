@@ -32,6 +32,11 @@ body{
   background-color: rgb(252, 152, 38);
   color: rgb(255, 255, 255);
   text-align: center;
+  padding: 0;
+}
+
+#nav-list li{
+  border: 1px solid #f6b319;
 }
 
 .navbar-header button.navbar-toggle, .navbar-header .icon-bar{
@@ -39,17 +44,24 @@ body{
 }
 
 #main-content{
+  margin-right: 5px;
+}
+
+#menu-tiles{
   background-color: #0146a0;
 }
 
-section{
-  text-align: center;
-  padding: 10px;
+h3{
+  padding: 0px;
+  font-size: 1.10em;
+  font-weight: bold;
+  color: black;
 }
 
 p{
   padding: 10px;
   top: 10px;
+  margin-bottom: 0px;
 }
 
 p.text-center{
@@ -59,4 +71,20 @@ p.text-center{
 .container-fluid{
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.col-md-4{
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 10px solid #3285f1;
+}
+
+.back-to-top{
+  text-align: right;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+
+.back-to-top a{
+  color: black;
 }
