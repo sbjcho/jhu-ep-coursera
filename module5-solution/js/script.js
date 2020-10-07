@@ -22,6 +22,7 @@ var menuItemsUrl =
   "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
+var aboutHtmlUrl = "snippets/about.html";
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -80,14 +81,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 // *** start ***
 // On first load, show home view
-showLoading("#main-content");
-$ajaxUtils.sendGetRequest(
-  allCategoriesUrl,
-  buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
-  true); // Explicitly setting the flag to get JSON from server processed into an object literal
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    allCategoriesUrl,
+    buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
+    true); // Explicitly setting the flag to get JSON from server processed into an object literal
 });
 // *** finish **
 
+// document.addEventListener("DOMContentLoaded", function (event) {
+
+//   showLoading("#about-content");
+//   $ajaxUtils.sendGetRequest(
+//     homeHtmlUrl,
+//     function (responseText){
+//       document.querySelector("#about-content")
+//         .innerHTML = responseText;
+//     }, // ***** <---- TODO: STEP 1: Substitute [...] ******
+//     false); // Explicitly setting the flag to get JSON from server processed into an object literal
+// });
 
 // Builds HTML for the home page based on categories array
 // returned from the server.
@@ -97,7 +109,7 @@ function buildAndShowHomeHTML (categories) {
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
-
+      
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
       // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
       // variable's name implies it expects.
@@ -149,6 +161,37 @@ dc.loadMenuCategories = function () {
     buildAndShowCategoriesHTML);
 };
 
+// Load the about view
+dc.loadAbout = function () {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    aboutHtmlUrl,
+    buildAndShowAboutHTML,
+    false);
+};
+
+function buildAndShowAboutHTML (aboutHtml) {
+  switchMenuToActive();
+  var randomNumberOneToFive = chooseRandomNumberOneToFive();
+
+  var aboutFinalHtml = aboutHtml;
+
+  for (var i = 0; i < 5; i++){
+    if(randomNumberOneToFive - i > 0){
+      var font = "fa fa-star";
+      aboutFinalHtml = insertProperty(aboutHtml, (i+1)+"-star", font);
+    }else {
+      var font = "far fa-star";
+      aboutFinalHtml = insertProperty(aboutFinalHtml, (i+1)+"-star", font);
+    }
+  }
+  
+  insertHtml("#main-content", aboutFinalHtml);
+}
+
+function chooseRandomNumberOneToFive(){
+  return Math.floor(Math.random() * 5) + 1;
+}
 
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
