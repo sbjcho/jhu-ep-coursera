@@ -171,15 +171,14 @@ dc.loadAbout = function () {
 };
 
 function buildAndShowAboutHTML (aboutHtml) {
-  switchMenuToActive();
   var randomNumberOneToFive = chooseRandomNumberOneToFive();
-
+  console.log("Random Number: " + randomNumberOneToFive);
   var aboutFinalHtml = aboutHtml;
 
   for (var i = 0; i < 5; i++){
     if(randomNumberOneToFive - i > 0){
       var font = "fa fa-star";
-      aboutFinalHtml = insertProperty(aboutHtml, (i+1)+"-star", font);
+      aboutFinalHtml = insertProperty(aboutFinalHtml, (i+1)+"-star", font);
     }else {
       var font = "far fa-star";
       aboutFinalHtml = insertProperty(aboutFinalHtml, (i+1)+"-star", font);
