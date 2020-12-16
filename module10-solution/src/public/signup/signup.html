@@ -1,0 +1,50 @@
+<div class="container">
+<h2 class="text-center">Sign Up!</h2>
+
+<form class="form" name="regForm" novalidate>
+
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input class="form-control" type="text" name="firstName" placeholder="First name" required ng-model="signupCtrl.info.firstName">
+    <span ng-if="regForm.firstName.$invalid && regForm.lastName.$touched">
+        Please provide your first name
+      </span>
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last name</label>
+    <input type="text" class="form-control" name="lastName" placeholder="Last name" required ng-model="signupCtrl.info.lastName">
+    <span ng-if="regForm.lastName.$invalid && regForm.lastName.$touched">
+      Please provide your last name
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" name="email" placeholder="Email" required ng-model="signupCtrl.info.email">
+    <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+      Pleas provide a valid email address: handle@domain format
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone number</label>
+    <input type="text" class="form-control" name="phone" placeholder="Phone ###-###-####"
+      pattern="(\d{3})-(\d{3})-(\d{4})" ng-model="signupCtrl.info.phone">
+    <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+      Please provide a valid phone number ###-###-####
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label for="shortname">Favorite menu</label>
+    <input type="text" class="form-control" name="shortname" placeholder="Favorite dish" ng-model="signupCtrl.info.shortname">
+    <span ng-if="signupCtrl.invalidMenu">
+          No such menu number exists!!
+    </span>
+  </div>
+
+  <button type="submit" class="btn btn-default" ng-disabled="regForm.$invalid" ng-click="signupCtrl.submit()">Submit</button>
+
+</form>
+</div>

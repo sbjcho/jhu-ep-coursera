@@ -1,0 +1,19 @@
+<div class="container">
+  <h2 class="text-center">My Information</h2>
+
+  <div ng-if="myinfoCtrl.userInfo.firstName != undefined">
+    <h3>Registration Info</h3>
+    <div>
+      <p>First Name: {{ myinfoCtrl.userInfo.firstName }}</p>
+      <p>Last Name: {{ myinfoCtrl.userInfo.lastName }}</p>
+      <p>Email: {{ myinfoCtrl.userInfo.email }}</p>
+      <p>Phone: {{ myinfoCtrl.userInfo.phone }}</p>
+      <p>Favorite Dish: {{ myinfoCtrl.userInfo.shortname }}</p>
+    </div>
+  </div>
+
+  <div ng-if="myinfoCtrl.userInfo.firstName == undefined"> 
+    Not Signed up Yet <a ui-sref="public.signup"> Sign up now!</a>
+  </div>
+
+</div>
